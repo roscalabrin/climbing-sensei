@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Col } from 'react-bootstrap'
+import './styles/Routines.css'
 
 class Routines extends Component {
   render() {
     return (
-      <Col sm={16} md={8}>
-        <p>Routines</p>
+      <Col sm={12} md={6} className='routines'>
+        {this.props.routines}
       </Col>
     )
   }

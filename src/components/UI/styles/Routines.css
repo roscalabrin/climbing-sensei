@@ -1,0 +1,14 @@
+.routines {
+  height: 650px;
+  text-align: left;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.routine {
+}
+
+.icon {
+  margin-top: 10px;
+}

@@ -1,0 +1,41 @@
+.workout-title, .workout-list, .workout-times {
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 10px;
+  margin-left: 25px;
+  margin-top: 5px;
+}
+
+.workout-actions {
+  border-radius: 10px;
+  margin-left: 25px;
+  margin-top: 5px;
+}
+
+.workout-title {
+  text-align: left;
+}
+
+.workout-list {
+  margin-top: 10px;
+  height: 500px;
+}
+
+.workouts-container {
+  margin-top: 5px;
+}
+
+.workout-actions {
+  margin-top: 10px;
+}
+
+.min-time {
+  text-align: left;
+}
+
+.max-time {
+  text-align: right;
+}
+
+.save-day {
+  float: left;
+}
