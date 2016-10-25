@@ -15,23 +15,12 @@ class BuilderContainer extends Component {
     return tags
   }
 
-  getRoutines = (num) => {
-    const routines = []
-    for (let i = 0; i < num; i++) {
-      const plusIcon = <i className='fi-plus icon'></i>
-      const viewIcon = <i className='fi-eye icon'></i>
-      const iconColumn = <Col md={1}>{ plusIcon }<br></br>{ viewIcon }</Col>
-      const textColumn = <Col md={11}><h2 className='routine'>Workout #{ i }</h2></Col>
-      const workout = <Row>{ iconColumn }{ textColumn }</Row>
-      routines.push(workout)
-    }
-    return routines
-  }
 
   render() {
     return (
       <div>
         <Grid>
+          {this.props.children}
           <Jumbotron>
             <Row>
               <Tags
@@ -41,7 +30,6 @@ class BuilderContainer extends Component {
             </Row>
             <Row>
               <Routines
-                routines={this.getRoutines(7)}
               />
               <Workouts />
             </Row>
