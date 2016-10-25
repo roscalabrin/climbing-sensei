@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-import '../css/App.css';
+import React, { Component } from 'react'
+import '../css/App.css'
 import BuilderContainer from './containers/BuilderContainer.js.jsx'
+import DashboardContainer from './containers/DashboardContainer.js.jsx'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <BuilderContainer />
+        // <BuilderContainer />
+        <DashboardContainer />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
