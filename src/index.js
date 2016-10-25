@@ -6,6 +6,7 @@ import BuilderContainer from './components/containers/BuilderContainer.js.jsx'
 import DashboardContainer from './components/containers/DashboardContainer.js.jsx'
 import NewDay from './components/UI/NewDay.js.jsx'
 import SavedDays from './components/UI/SavedDays.js.jsx'
+import Routine from './components/UI/Routine.js.jsx'
 import './css/index.css'
 
 ReactDOM.render(
@@ -15,7 +16,9 @@ ReactDOM.render(
         <Route path="/saved-days/new" component={ NewDay } />
         <Route path="/saved-days/index" component={ SavedDays } />
       </Route>
-      <Route path="/builder" component={ BuilderContainer } />
+      <Route path="/builder" component={ BuilderContainer }>
+        <Route path="/workouts/:workoutName" component={ Routine } />
+      </Route>
     </Route>
   </Router>,
   document.getElementById('root')

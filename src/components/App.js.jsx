@@ -9,6 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <p><Link to="/my-account">My Account</Link></p>
+        <p><Link to="/builder">Workout Builder</Link></p>
         { this.props.children }
       </div>
     )
