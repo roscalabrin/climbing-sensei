@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NavbarContainer from './containers/NavbarContainer.js.jsx'
+import NavbarContainer from './NavbarContainer.js.jsx'
 
 class DashboardContainer extends Component {
   render () {
