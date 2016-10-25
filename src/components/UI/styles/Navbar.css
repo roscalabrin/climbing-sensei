@@ -1,3 +1,14 @@
 .navbar-list {
   list-style: none;
+  background-color: #333333;
+}
+
+.navbar-list-item {
+  float: right;
+}
+
+.navbar-list-item a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
 }
