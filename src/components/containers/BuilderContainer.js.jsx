@@ -28,14 +28,6 @@ class BuilderContainer extends Component {
     return routines
   }
 
-  getSkeletonData = () => {
-    const skellys = []
-    for (let i = 0; i < 4; i++) {
-      skellys.push(<Row><Button className='skelly' bsStyle='primary' bsSize='small'>Ipsum Lorem</Button></Row>)
-    }
-    return skellys
-  }
-
   render() {
     return (
       <div>
@@ -45,9 +37,7 @@ class BuilderContainer extends Component {
               <Tags
                 tags={this.getTags(20)}
               />
-              <Skeleton
-                skellys={this.getSkeletonData()}
-              />
+              <Skeleton />
             </Row>
             <Row>
               <Routines
