@@ -4,7 +4,7 @@ class SavedDays extends Component {
   render () {
     return (
       <div>
-        <li>Saved Days</li>
+        <li className="navbar-item">Saved Days</li>
       </div>
     )
   }

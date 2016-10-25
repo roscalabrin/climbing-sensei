@@ -4,7 +4,7 @@ import NavbarContainer from './NavbarContainer.js.jsx'
 class DashboardContainer extends Component {
   render () {
     return (
-      <div className="Dashboard">
+      <div className="dashboard">
         <NavbarContainer />
       </div> 
     )
