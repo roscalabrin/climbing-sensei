@@ -6,7 +6,7 @@ class Skeleton extends Component {
   render() {
     return (
       <Col className='skeleton-container' sm={8} md={4}>
-        <p>Skeleton</p>
+        {this.props.skellys}
       </Col>
     )
   }
