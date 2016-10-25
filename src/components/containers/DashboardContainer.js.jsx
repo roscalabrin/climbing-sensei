@@ -6,6 +6,7 @@ class DashboardContainer extends Component {
     return (
       <div className="dashboard">
         <NavbarContainer />
+        { this.props.children }
       </div> 
     )
   }

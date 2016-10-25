@@ -1,6 +1,5 @@
 import React,{ Component } from 'react'
-import NewDay from './../UI/NewDay.js.jsx'
-import SavedDays from './../UI/SavedDays.js.jsx'
+import { Link } from 'react-router'
 import './../UI/styles/Navbar.css'
 
 class NavbarContainer extends Component {
@@ -8,8 +7,8 @@ class NavbarContainer extends Component {
     return (
       <div className="navbar-container">
         <ul className="navbar-list">
-          < NewDay />
-          < SavedDays />
+          <li className="navbar-list-item"><Link to="/saved-days/new">New Day</Link></li>
+          <li className="navbar-list-item"><Link to="/saved-days/index">Saved Days</Link></li>
         </ul>
       </div>
     )
