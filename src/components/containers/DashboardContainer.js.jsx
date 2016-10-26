@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import NavbarContainer from './NavbarContainer.js.jsx'
 
 class DashboardContainer extends Component {
@@ -12,4 +13,4 @@ class DashboardContainer extends Component {
   }
 }
 
-export default DashboardContainer
+export default connect()(DashboardContainer)
