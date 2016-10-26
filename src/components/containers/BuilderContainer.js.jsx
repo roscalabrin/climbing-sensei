@@ -16,7 +16,6 @@ class BuilderContainer extends Component {
     return tags
   }
 
-
   render() {
     return (
       <div>
