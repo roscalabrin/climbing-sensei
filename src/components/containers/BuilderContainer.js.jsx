@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Grid, Row, Col, Jumbotron, Button } from 'react-bootstrap'
 import Workouts from './../UI/Workouts.js.jsx'
 import Routines from './../UI/Routines.js.jsx'
@@ -14,7 +15,6 @@ class BuilderContainer extends Component {
     }
     return tags
   }
-
 
   render() {
     return (
@@ -40,4 +40,4 @@ class BuilderContainer extends Component {
   }
 }
 
-export default BuilderContainer
+export default connect()(BuilderContainer)
