@@ -7,6 +7,9 @@ import Skeleton from './../UI/Skeleton.js.jsx'
 import Tags from './../UI/Tags.js.jsx'
 
 class BuilderContainer extends Component {
+  componentDidMount() {
+    console.log(this.props.tags)
+  }
   getTags = (num) => {
     const tags = []
     for (let i = 0; i < num; i++) {
