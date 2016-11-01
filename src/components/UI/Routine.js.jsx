@@ -10,6 +10,10 @@ class Routine extends Component {
     this.state = { activeTab: '1' }
   }
 
+  componentWillMount() {
+    this.props.dispatch(push(this.defaultHref()))
+  }
+
   renderTab = (tabNum, pathName) => {
     this.setState({ activeTab: tabNum })
     const path = `/workouts/${this.props.params.workoutName}/${pathName}`
@@ -24,7 +28,7 @@ class Routine extends Component {
     return (
       <div>
         <Modal show={true} bsSize='large'>
-          <Nav bsStyle='tabs' activeHref={this.defaultHref()} activeKey={this.state.activeTab} justified={true}>
+          <Nav bsStyle='tabs' activeKey={this.state.activeTab} justified={true}>
             <NavItem eventKey='1' onClick={this.renderTab.bind(this, '1', 'goals-and-details')}>Goals & Details</NavItem>
             <NavItem eventKey='2' onClick={this.renderTab.bind(this, '2', 'steps')}>Steps</NavItem>
             <NavItem eventKey='3' onClick={this.renderTab.bind(this, '3', 'intensity-and-beta')}>Intensity & Beta</NavItem>
