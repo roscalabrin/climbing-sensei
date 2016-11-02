@@ -40,4 +40,9 @@ class BuilderContainer extends Component {
   }
 }
 
-export default connect()(BuilderContainer)
+function mapStateToProps(state) {
+  return { tags: state.mainReducer.tags }
+}
+
+export default connect(mapStateToProps)(BuilderContainer)
+
