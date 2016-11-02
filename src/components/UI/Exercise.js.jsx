@@ -4,7 +4,7 @@ import { push } from 'react-router-redux'
 import { Link } from 'react-router'
 import { Modal, Button, Nav, NavItem } from 'react-bootstrap'
 
-class Routine extends Component {
+class Exercise extends Component {
   constructor(props) {
     super(props)
     this.state = { activeTab: '1' }
@@ -16,12 +16,12 @@ class Routine extends Component {
 
   renderTab = (tabNum, pathName) => {
     this.setState({ activeTab: tabNum })
-    const path = `/workouts/${this.props.params.workoutName}/${pathName}`
+    const path = `/exercises/${this.props.params.exerciseName}/${pathName}`
     this.props.dispatch(push(path))
   }
 
   defaultHref = () => {
-    return `/workouts/${this.props.params.workoutName}/goals-and-details`
+    return `/exercises/${this.props.params.exerciseName}/goals-and-details`
   }
 
   render() {
@@ -34,7 +34,7 @@ class Routine extends Component {
             <NavItem eventKey='3' onClick={this.renderTab.bind(this, '3', 'intensity-and-beta')}>Intensity & Beta</NavItem>
           </Nav>
           <Modal.Header>
-            <Modal.Title>Workout #{ this.props.params.workoutName }</Modal.Title>
+            <Modal.Title>{ this.props.params.exerciseName }</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
@@ -51,4 +51,4 @@ class Routine extends Component {
   }
 }
 
-export default connect()(Routine)
+export default connect()(Exercise)
