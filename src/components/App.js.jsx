@@ -4,22 +4,24 @@ import '../css/App.css'
 import BuilderContainer from './containers/BuilderContainer.js.jsx'
 import DashboardContainer from './containers/DashboardContainer.js.jsx'
 import Ajax from './helpers/ajax.js'
-import { connect } from 'react-redux' 
+import { connect } from 'react-redux'
 
 class App extends Component {
 
   componentDidMount() {
     const api = new Ajax()
-    api.fetchTags().then(response => this.storeTags(response.data))
+    api.fetchTags().then(this.storeTags)
   }
 
-  storeTags = (tags) => {
+  storeTags = (responseBody) => {
     this.props.dispatch({
       type: 'STORE_TAGS',
-      data: tags
+      payload: {
+        tags: responseBody.data
+      }
     })
   }
-  
+
   render() {
     return (
       <div className="App">
