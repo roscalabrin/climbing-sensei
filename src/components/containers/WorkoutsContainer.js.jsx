@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { DropTarget } from 'react-dnd'
 import { ItemTypes } from './../../constants'
 import KeyGenerator from './../helpers/keyGenerator'
+import paramaterize from './../helpers/paramaterize'
 import './../UI/styles/WorkoutsContainer.css'
 
 const workoutsTarget = {
@@ -49,7 +50,8 @@ class WorkoutsContainer extends Component {
     const keyGetter = new KeyGenerator()
 
     return this.props.workouts.map(workout => {
-      const path = `/exercises/${workout.name}`
+      const path = `/exercises/${paramaterize(workout.name)}`
+
       return (
         <Link to={path}
               key={keyGetter.randomKey}
