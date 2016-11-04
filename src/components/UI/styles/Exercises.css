@@ -4,6 +4,7 @@
   border: 1px solid rgba(10, 10, 10, 0.25);
   border-radius: 10px;
   margin-top: 15px;
+  overflow-y: scroll;
 }
 
 .exercise {
