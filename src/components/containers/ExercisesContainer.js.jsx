@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { Col } from 'react-bootstrap'
 import KeyGenerator from './../helpers/keyGenerator'
 import ExerciseLink from './../UI/ExerciseLink.js.jsx'
+import paramaterize from './../helpers/paramaterize'
 import './../UI/styles/Exercises.css'
 
 class ExercisesContainer extends Component {
@@ -11,7 +12,7 @@ class ExercisesContainer extends Component {
     const keyGetter = new KeyGenerator()
 
     return this.props.exercises.map(ex => {
-      let path = `/exercises/${ex.name}`
+      const path = `/exercises/${paramaterize(ex.name)}`
       return (
         <ExerciseLink
           path={path}

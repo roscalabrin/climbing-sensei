@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { Link } from 'react-router'
 import { Modal, Button, Nav, NavItem } from 'react-bootstrap'
+import paramaterize from './../helpers/paramaterize'
 
 class Exercise extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class Exercise extends Component {
             <NavItem eventKey='3' onClick={this.renderTab.bind(this, '3', 'intensity-and-beta')}>Intensity & Beta</NavItem>
           </Nav>
           <Modal.Header>
-            <Modal.Title>{ this.props.params.exerciseName }</Modal.Title>
+            <Modal.Title>{ this.props.exercise.name }</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
@@ -51,4 +52,18 @@ class Exercise extends Component {
   }
 }
 
-export default connect()(Exercise)
+function mapStateToProps(state) {
+  const pathName = window.location.pathname.split('/')[2]
+
+  const totalExercises = state.mainReducer.tags.reduce((result, tag) => {
+    return [...tag.exercises, ...result]
+  }, [])
+
+  const exercise = totalExercises.find(ex => {
+    return pathName === paramaterize(ex.name)
+  })
+
+  return { exercise: exercise }
+}
+
+export default connect(mapStateToProps)(Exercise)
