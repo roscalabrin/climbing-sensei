@@ -1,18 +1,24 @@
 import React, { Component } from 'react'
 import { Col, Row, Button } from 'react-bootstrap'
+import { ItemTypes } from './../../constants'
+import WorkoutsContainer from './../containers/WorkoutsContainer.js.jsx'
 import './styles/Workouts.css'
 
 class Workouts extends Component {
   render() {
     return (
-      <Col sm={12} md={6} className='workouts-container'>
+      <Col sm={12} md={6} className='workouts'>
         <Row>
           <Col sm={20} md={10} className='workout-title'>
             <h4>Title of Workout #1</h4>
           </Col>
         </Row>
         <Row>
-          <Col sm={20} md={10} className='workout-list'>
+          <Col sm={20} md={10}>
+            <WorkoutsContainer
+              handleDrop={this.props.handleDrop}
+              workouts={this.props.workouts}
+            />
           </Col>
         </Row>
         <Row>

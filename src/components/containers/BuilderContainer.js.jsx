@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Grid, Row, Col, Jumbotron, Button } from 'react-bootstrap'
+import { DragDropContext } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
 import Workouts from './../UI/Workouts.js.jsx'
 import Skeleton from './../UI/Skeleton.js.jsx'
 import ExercisesContainer from './ExercisesContainer.js.jsx'
@@ -11,13 +13,14 @@ class BuilderContainer extends Component {
   constructor(props) {
     super(props)
     this.state = { activeTags: this.props.tags,
-                   activeExercises: this.props.exercises }
+                   activeExercises: this.props.exercises,
+                   workouts: [] }
   }
 
   activateTag = (targetTag) => {
     const newActiveExercises = [...targetTag.exercises, ...this.state.activeExercises]
     const newActiveTags = [targetTag, ...this.state.activeTags]
-    this.setState({ activeTags: newActiveTags, activeExercises: newActiveExercises })
+    this.update(newActiveTags, newActiveExercises)
   }
 
   deactivateTag = (targetTag) => {
@@ -30,12 +33,33 @@ class BuilderContainer extends Component {
     const newActiveExercises = this.state.activeExercises.filter(exercise => {
       return !exerciseIds.includes(exercise.id)
     })
-
-    this.setState({ activeTags: newActiveTags, activeExercises: newActiveExercises })
+    this.update(newActiveTags, newActiveExercises)
   }
 
   clearTags = () => {
-    this.setState({ activeTags: [], activeExercises: [] })
+    this.update([], [])
+  }
+
+  handleDrop = (dragTarget) => {
+    const targetExercise = this.state.activeExercises.find(exercise => {
+      return exercise.id === dragTarget.id
+    })
+
+    const newWorkouts = [targetExercise, ...this.state.workouts]
+    this.update(this.state.activeTags,
+                this.state.activeExercises,
+                newWorkouts)
+  }
+
+  update = (activeTags = this.state.activeTags,
+            activeExercises = this.state.activeExercises,
+            workouts = this.state.workouts) => {
+
+    const newState = { activeTags: activeTags,
+                       activeExercises: activeExercises,
+                       workouts: workouts }
+
+    this.setState(newState)
   }
 
   render() {
@@ -57,7 +81,10 @@ class BuilderContainer extends Component {
               <ExercisesContainer
                 exercises={this.state.activeExercises}
               />
-              <Workouts />
+              <Workouts
+                workouts={this.state.workouts}
+                handleDrop={this.handleDrop}
+              />
             </Row>
           </Jumbotron>
         </Grid>
@@ -75,5 +102,5 @@ function mapStateToProps(state) {
            exercises: exercises }
 }
 
-export default connect(mapStateToProps)(BuilderContainer)
+export default DragDropContext(HTML5Backend)(connect(mapStateToProps)(BuilderContainer))
 

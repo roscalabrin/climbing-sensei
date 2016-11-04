@@ -1,0 +1,31 @@
+.workouts-container {
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 10px;
+  margin-left: 25px;
+  margin-top: 10px;
+  height: 500px;
+  overflow-y: scroll;
+}
+.drag-mouse-over {
+  border-color: maroon;
+  border-style: solid;
+  border-width: 8px;
+  animation: pulsate 2s infinite;
+}
+
+.drag-mouse-not-over {
+  border-color: green;
+  border-style: dotted;
+  border-width: 5px;
+  animation: pulsate 4s infinite;
+}
+
+@-webkit-keyframes pulsate
+
+{
+  0%   {background-color: #effee6;}
+  25%  {background-color: #dcffcc;}
+  50% {background-color: #cbffb3;}
+  75% {background-color: #b9ff99;}
+  100% {background-color: #a8ff80;}
+}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Col } from 'react-bootstrap'
 import KeyGenerator from './../helpers/keyGenerator'
+import ExerciseLink from './../UI/ExerciseLink.js.jsx'
 import './../UI/styles/Exercises.css'
 
 class ExercisesContainer extends Component {
@@ -11,12 +12,13 @@ class ExercisesContainer extends Component {
 
     return this.props.exercises.map(ex => {
       let path = `/exercises/${ex.name}`
-
-      return <Link to={path}
-                   key={keyGetter.randomKey}
-             >
-              <h3 className='exercise'>{ ex.name }</h3>
-             </Link>
+      return (
+        <ExerciseLink
+          path={path}
+          key={keyGetter.randomKey}
+          exercise={ex}
+        />
+      )
     })
   }
 
