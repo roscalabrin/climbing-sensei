@@ -2,16 +2,6 @@ html, body {
   height: 100%;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  /*background-image: url("../../public/BWhandsback.png");*/
-  background-position: center center;
-	background-repeat:  no-repeat;
-	background-attachment: fixed;
-	background-size:  cover;
-	/*background-color: #999;*/
-}
-
 .form-center {
   margin: auto;
   position: absolute;
@@ -25,12 +15,12 @@ body {
   min-width: 250px;
   max-width: 400px;
 }
-/*
+
 .form-body {
   background-color: rgba(255, 255, 255, .7);
   border-radius: 10px;
   padding: 5px 20px;
-}*/
+}
 
 .sign-up-form {
   margin-top: 10% !important;
