@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import '../css/App.css'
+import './UI/styles/App.css'
+import SessionContainer from './containers/SessionContainer.js.jsx'
 import BuilderContainer from './containers/BuilderContainer.js.jsx'
 import DashboardContainer from './containers/DashboardContainer.js.jsx'
 import Ajax from './helpers/ajax.js'
@@ -28,6 +29,11 @@ class App extends Component {
         <p><Link to="/my-account">My Account</Link></p>
         <p><Link to="/builder">Workout Builder</Link></p>
         { this.props.children }
+        <SessionContainer />
+        {/* <footer>
+          <p className="text-muted">© 2016 by Climbing Sensei, Inc.</p>
+        </footer> */}
+        
       </div>
     )
   }
