@@ -11,7 +11,7 @@ class App extends Component {
 
   componentDidMount() {
     const api = new Ajax()
-    api.fetchTags().then(this.storeTags)
+    // api.fetchTags().then(this.storeTags)
   }
 
   storeTags = (responseBody) => {
